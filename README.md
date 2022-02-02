@@ -1,7 +1,7 @@
 # Language-Tool
 
 ## Useful sources
-* [ziglearn](ziglearn.org)
+* [ziglearn](https://ziglearn.org/)
 * [Zig Documentation](https://ziglang.org/documentation/)
 * [How to Add Buffering to a Reader / Writer in Zig](https://zig.news/kristoff/how-to-add-buffering-to-a-writer-reader-in-zig-7jd)
 * [Zig/Strings in 5 minutes](https://www.huy.rocks/everyday/01-04-2022-zig-strings-in-5-minutes)
