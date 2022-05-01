@@ -1,9 +1,18 @@
 # Language-Tool
 
-## Useful sources
-* [ziglearn](https://ziglearn.org/)
-* [Zig Documentation](https://ziglang.org/documentation/)
-* [How to Add Buffering to a Reader / Writer in Zig](https://zig.news/kristoff/how-to-add-buffering-to-a-writer-reader-in-zig-7jd)
-* [Zig/Strings in 5 minutes](https://www.huy.rocks/everyday/01-04-2022-zig-strings-in-5-minutes)
-* [What's a String Literal in Zig?](https://zig.news/kristoff/what-s-a-string-literal-in-zig-31e9)
-* [Beginner's notes on Slices/Arrays/Strings](https://zig.news/david_vanderson/beginner-s-notes-on-slices-arrays-strings-5b67)
+## Introduction
+Language-Tool is my side project I came up with this project, because I wanted to learn more languages.
+With this application you are able to create dictionaries for translating words.
+In the application you can look up a word in the dictionary and get a translation.
+
+## Technologies
+Zig 0.9.1
+
+## Project Status
+Project is being worked on.
+
+## TODO List
+- [] File IO
+- [] Trie Data Structure
+- [] Put file contents in Data Structure
+- [] Handling User Input
