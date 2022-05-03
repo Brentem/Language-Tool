@@ -12,7 +12,7 @@ Zig 0.9.1
 Project is being worked on.
 
 ## TODO List
-- [] File IO
-- [] Trie Data Structure
-- [] Put file contents in Data Structure
-- [] Handling User Input
+- [ ] File IO
+- [ ] Trie Data Structure
+- [ ] Put file contents in Data Structure
+- [ ] Handling User Input
