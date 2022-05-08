@@ -21,3 +21,11 @@
 
 ### Ternary Search Tree
 *[Ternary Search Tree](https://www.geeksforgeeks.org/ternary-search-tree/)
+
+## FileIO / DictionaryFile Notes
+To prevent that the file will be overwritten you should change the offSet with File.seekTo().
+You can also add a newline to the string so that it will be placed on the next line.
+I haven't implemented this yet, because I don't know if I'll need it.
+
+If you create a DictionaryFile struct and declare it as undefined, the initialized bool is also undefined.
+This means that the DictionaryFileError is not returned.
