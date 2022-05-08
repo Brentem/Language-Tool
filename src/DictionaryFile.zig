@@ -1,7 +1,9 @@
 const std = @import("std");
 
-const StringNamespace = @import("String.zig");
-const String = StringNamespace.String;
+const String = @import("String.zig").String;
+
+const Dir = std.fs.Dir;
+const File = std.fs.File;
 
 const DictionaryFileError = error{
     DictionaryFileNotInitialized
@@ -24,15 +26,12 @@ pub const DictionaryFile = struct
     }
 
     pub fn create_file(self: *DictionaryFile) !void{
-        if(!self.initialized)
+        if(self.initialized == false)
         {
             return DictionaryFileError.DictionaryFileNotInitialized;
         }
 
-        var dir = try std.fs.openDirAbsolute(
-            self.directoryName.content.items,
-            .{.access_sub_paths = true}
-        );
+        var dir = try self.open_dir();
         defer dir.close();
         
         const file = try dir.createFile(
@@ -44,49 +43,47 @@ pub const DictionaryFile = struct
     }
 
     pub fn write_file(self: *DictionaryFile, contents: []const u8) !void{
-        if(!self.initialized)
+        if(self.initialized == false)
         {
             return DictionaryFileError.DictionaryFileNotInitialized;
         }
 
-        var dir = try std.fs.openDirAbsolute(
-            self.directoryName.content.items,
-            .{.access_sub_paths = true}
-        );
+        var dir = try self.open_dir();
         defer dir.close();
 
-        const file = try dir.openFile(
-            self.fileName.content.items,
-            .{.mode = std.fs.File.OpenMode.write_only},
-        );
+        const file = try self.open_file(dir);
         defer file.close();
 
         try file.writeAll(contents);
     }
 
     pub fn read_file(self: *DictionaryFile, buffer: []u8) !void{
-        if(!self.initialized)
+        if(self.initialized == false)
         {
             return DictionaryFileError.DictionaryFileNotInitialized;
         }
 
-        var dir = try std.fs.openDirAbsolute(
-            self.directoryName.content.items,
-            .{.access_sub_paths = true}
-        );
+        var dir = try self.open_dir();
         defer dir.close();
 
-        const file = try dir.openFile(
-            self.fileName.content.items,
-            .{},
-        );
+        const file = try self.open_file(dir);
         defer file.close();
 
         var temp = try file.readAll(buffer);
+        _ = temp;
+    }
 
-        if(temp > 0)
-        {
-            // Do something usefull or replace this.
-        }
+    fn open_dir(self: *DictionaryFile) !Dir{
+        return std.fs.openDirAbsolute(
+            self.directoryName.content.items,
+            .{.access_sub_paths = true}
+        );
+    }
+
+    fn open_file(self: *DictionaryFile, dir: Dir) !File{
+        return dir.openFile(
+            self.fileName.content.items,
+            .{.mode = std.fs.File.OpenMode.read_write},
+        );
     }
 };
