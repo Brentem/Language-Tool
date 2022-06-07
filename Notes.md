@@ -20,7 +20,7 @@
 * [Data Structures: Tries](https://www.youtube.com/watch?v=zIjfhVPRZCg)
 
 ### Ternary Search Tree
-*[Ternary Search Tree](https://www.geeksforgeeks.org/ternary-search-tree/)
+* [Ternary Search Tree](https://www.geeksforgeeks.org/ternary-search-tree/)
 
 ## FileIO / DictionaryFile Notes
 To prevent that the file will be overwritten you should change the offSet with File.seekTo().
