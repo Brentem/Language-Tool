@@ -13,34 +13,11 @@ pub fn main() !void {
 
     //DictionaryFile.create_file()
     var node = try TrieNode.init();
-    try node.insert("test");
-    try node.insert("aap");
-    try node.insert("koe");
 
-    if(node.search("test"))
-    {
-        std.debug.print("test exists!", .{});
-    }
+    try node.insert("Aap", "Monkey");
+    var translation: String = try node.getTranslation("aap");
 
-    if(node.search("gorilla"))
-    {
-        std.debug.print("gorilla exists!", .{});
-    }
-
-    if(node.search("aap"))
-    {
-        std.debug.print("aap exists!", .{});
-    }
-
-    if(node.search("pistol"))
-    {
-        std.debug.print("pistol exists!", .{});
-    }
-
-    if(node.search("koe"))
-    {
-        std.debug.print("koe exists!", .{});
-    }
+    std.debug.print("Translation: {s}", .{translation.content.items});
 
     while(run)
     {
